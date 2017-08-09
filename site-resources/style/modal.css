@@ -1,0 +1,38 @@
+.modal{
+  z-index:10000;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:50%;
+  background-color:white;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+  padding-bottom:30px;
+  max-height: 90%;
+  overflow-y: scroll;
+  padding-bottom: 10px;
+}
+
+.modal-header{
+  background-color:#f0f0f0;
+  font-size:24px;
+  padding: 13px;
+  text-align:center;
+}
+
+.modal-content {
+  padding:13px;
+  font-size: 16px;
+  line-height:1.5em;
+  max-height: 500px;
+}
+
+.close{
+  font-weight:bold;
+  position:absolute;
+  right:0;
+  top:0;
+  cursor:pointer;
+  display: block;
+  padding:10px;
+}

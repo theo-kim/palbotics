@@ -1,0 +1,49 @@
+<div class = "container scrolled">
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Group Info</span>
+            <span class="caption small no-margin">Assign information for your team.</span>
+            <span class="caption xsmall no-margin subtle"><b>Team ID: </b> {{group.gid}}</span>
+            <input type = 'text' ng-model = "group['team_name']" class = "small margin">
+            <span class="caption xsmall no-margin subtle indent"><b>Team Name</b></span>
+            <input type = 'text' ng-model = "group.slogan" class="long small margin">
+            <span class="caption xsmall no-margin subtle indent"><b>Team Slogan</b></span>
+            <input type = 'text' ng-model = "money" ng-init="money=0" class="margin short center small" />
+            <span class="caption xsmall no-margin subtle indent"><b>Team Budget</b></span>
+            <span class = "caption small badge button right xmargin" ng-click="edit()">Edit Group</span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Missions</span>
+            <span class="caption small no-margin">Missions are the small tasks that each group must complete in order to earn points</span>
+            <span class = "caption small badge button right xmargin" ng-click="mission()">View Missions</span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Roster</span>
+            <span class="caption small no-margin">View a roster with your group's participants.</span>
+            <span class = "caption small badge button right xmargin" ng-click="position=!position">View Roster</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <div ng-repeat="n in group.participants">
+                <span class="small">{{n.first}} {{n.last}}</span>
+                <span class="caption xsmall badge small-padding indent"><i class = "fa fa-{{n.gender=='Male' ? 'male' : 'female'}}"></i> Male</span>
+                <span class="caption xsmall badge small-padding indent">{{num(n.grade)}}th Grade</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class = "container hidden flyRight" style = "padding-top: 0" ng-show = "open">
+            <div class = "panel center-60" style = "margin-top: 0">
+                <span class="caption medium no-margin">Awards</span>
+                <span clas="small no-margin">Recognize the achievements of your participants by submitting awards.
+                    Create a unique name and description for each participant's award, recognizing them for one unique
+                    contribution made by your participant during the program.
+                </span>
+                <span class = "caption small badge button right xmargin" ng-click="awards()">Award Submission</span>
+            </div>
+        </div>
+    </div>
+</div>

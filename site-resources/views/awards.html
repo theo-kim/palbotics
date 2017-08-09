@@ -1,0 +1,12 @@
+<div class = "container scrolled">
+    <div ng-repeat="x in apps" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class = "caption medium no-margin">{{x.first}} {{x.last}}</span>
+            <input type = 'text' ng-model = "x.name" class = "small margin">
+            <span class="caption xsmall no-margin subtle indent"><b>Award Name</b></span>
+            <textarea ng-model="x.explaination"></textarea>
+            <span class="caption xsmall no-margin subtle indent"><b>Award Description</b></span>
+            <span class="caption small button badge right xmargin" ng-click="submit(x)">Submit</span>
+        </div>
+    </div>
+</div>

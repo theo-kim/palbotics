@@ -1,0 +1,313 @@
+@import url("animation.css");
+@import url("mobile-form.css");
+@import url("mobile-menu.css");
+@import url("mobile-modal.css");
+@import url("common.css");
+body {
+    font-family: helvetica;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: #eee !important;
+    width: 100%;
+}
+
+ng-view {
+    display: block;
+    position:absolute;
+    top: 165px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 125px;
+    padding: 20px 0px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px #888;
+    z-index: 1000;
+}
+
+    .heading .icon {
+        height: 100px;
+        position: relative;
+        border-radius: 50%;
+        float: left;
+        position: relative;
+        top: 50%;
+        margin: 0px 20px 0px 30px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .heading h1 {
+        font-family: helvetica;
+        font-size: 56px;
+        display: block;
+        float: left;
+        margin: 0px;
+        position: relative;
+        top: 50%;
+        font-weight: normal;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+login {
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top:  145px;
+    position: absolute;
+}
+
+.opener {
+    position:relative;
+    height:100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    transition: top 1s;
+}
+
+    .opener.ng-hide-add {
+        -webkit-animation: 1s flyoutTop;
+                animation: 1s flyoutTop;
+    }
+
+.info {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 20px
+}
+
+.verticle-middle {
+    position: relative;
+    top: 50% !important;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    padding: 0px 25px;
+}
+
+.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+}
+
+.option {
+    padding: 0px 40px;
+}
+
+.large {
+    font-size: 64px !important;
+}
+
+.medium {
+    font-size: 56px !important;
+}
+
+.small {
+    font-size: 40px !important;
+}
+
+.xsmall {
+    font-size: 28px !important;
+}
+
+.loading {
+    -webkit-animation-name: loading;
+    animation-name: loading;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    width: 200px;
+    position:relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+#back {
+    font-size: 65px;
+    display: block;
+    float:left;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    font-weight: normal;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 30px;
+    margin-left: 10px;
+}
+
+#password-reset {
+    color: #4fbac8;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+#password-reset:hover {
+    text-decoration: underline;
+    color: #6abac8;
+}
+
+.fullscreen {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.error {
+    margin-top: 30px;
+    color: red;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.good {
+    margin-top: 30px;
+    color: green;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+
+}
+
+.badge {
+    padding: 30px 40px;
+    border-radius: 50px;
+}
+
+.badge.small-padding {
+    padding: 20px 30px !important;
+}
+
+#loading {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 80px;
+    height: 300px;
+    padding-top: 150px !important;
+}
+
+.content {
+    position: absolute;
+    padding: 10px;
+    overflow: scroll;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.25em;
+    top: calc(50% + 100px);
+    left: 50%;
+    width: 90%;
+    height: 70%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.small-reel {
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    float: left;
+    text-align: left;
+    position: relative;
+}
+
+.small-reel img {
+    position: relative;
+    height: 100%;
+    margin-right: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.file-loading {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-page {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9990;
+    text-align: center;
+}
+
+.sort-panel {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.footer {
+    display: none !important;
+    z-index: 1000;
+    text-align: center;
+    position: fixed;
+    top: 1600px;
+    left: 0;
+    right: 0;
+    padding-bottom: 5px;
+    font-size: 30px;
+}
+
+.attention {
+    -webkit-animation: pulse 2s;
+    animation: pulse 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+.attention-message {
+    -webkit-animation: pulse-back 2s;
+    animation: pulse-back 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+
+#writem {
+    opacity: 1;
+    border: 2px solid black;
+    height: 125px;
+    width: 400px;
+    margin-top: 25px;
+}

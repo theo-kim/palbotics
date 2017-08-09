@@ -1,0 +1,27 @@
+<div class = "container scrolled">
+    <div ng-repeat="x in apps | orderBy:'gid'" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <i class="fa fa-caret-up option {{position ? 'more' : 'less'}}" aria-hidden="true" ng-click="position=!position"></i>
+            <span class="caption xsmall no-margin subtle">Group ID: {{x.gid}}</span>
+            <span class="caption medium">{{x.name || 'Group Name Not Assigned'}}</span>
+            <span class="caption small no-margin">{{x.slogan || 'Group Slogan Not Assigned'}}</span>
+            <span class="caption small"><b>Members:</b> {{x.members.length}}</span>
+            <span class = "caption small badge red button right xmargin" ng-click='drop(x.gid)'>Delete</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <span class="caption small hidden" ng-repeat="q in x.mentors" style="border-bottom:1px solid #AAA; padding-bottom: 5px;">
+                {{q.first}} {{q.last}}
+                <span class = "caption badge xsmall small-padding no-margin selected">Mentor</span>
+                <span class = "caption badge small small-padding no-margin red right button" style="color:#fff;" ng-click="dropM(x.gid, q.uid, q.role, q, x)">Remove</span>
+            </span>
+            <span class="caption small hidden" ng-repeat="q in x.members" style="border-bottom:1px solid #AAA; padding-bottom: 5px;">
+                {{q.first}} {{q.last}}
+                <span class = "caption badge xsmall small-padding no-margin">Member</span>
+                <span class = "caption badge small small-padding no-margin red right button" style="color:#fff;" ng-click="dropM(x.gid, q.uid, q.role, q, x)">Remove</span>
+            </span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight center" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <span class = "caption button badge green no-margin" style="color:#fff;" ng-click="addGroup()">New Group</span>
+    </div>
+</div>

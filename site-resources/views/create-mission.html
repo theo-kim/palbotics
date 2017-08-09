@@ -1,0 +1,22 @@
+<div class = "container scrolled">
+    <div ng-repeat="x in apps | orderBy:'progression'" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption xsmall no-margin subtle">Mission ID: {{x.moid}}</span>
+            <span class="caption small long">{{x.objective}}</span>
+            <span class="caption small"><b>Point Value:</b> {{x.value}}</span>
+            <span class="caption small no-margin"><b>Progression:</b> {{x.progression}}</span>
+            <span class = "caption small badge red button right xmargin" ng-click='drop(x.moid)'>Delete</span>
+            <span class = "caption small badge button right xmargin disabled">Edit</span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0; opacity: {{(focus || objective.length > 0 || value > 0) ? 1 : 0.3}}" ng-init="focus=false">
+            <span class="caption medium no-margin">Create a New Mission</span>
+            <textarea placeholder="Enter the mission objective here" ng-focus="focus=true" ng-blur="focus=false" ng-model="objective" ng-init="objective=''"></textarea>
+            <span class="caption small"><b>Point Value:</b> <input type="number" ng-focus="focus=true" ng-blur="focus=false" ng-model="value" ng-init="value=''"/></span>
+            <span class="caption small no-margin"><b>Progression:</b> {{apps[apps.length - 1].progression + 1}}</span>
+
+            <span class = "caption small badge button right xmargin {{objective.length > 0 && value > 0 ? '' : 'disabled'}}" ng-click="newM()">Save</span>
+        </div>
+    </div>
+</div>

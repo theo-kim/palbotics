@@ -1,0 +1,221 @@
+menu.slide.ng-enter, menu.slide.ng-leave {
+    transition: 1s opacity;
+}
+
+menu.slide.ng-enter,
+menu.slide.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+menu.slide.ng-leave,
+menu.slide.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.poptart {
+    transition: margin-top 0.5s;
+    margin-top: -10px;
+}
+
+.poptart.ng-hide {
+    margin-top: -300px;
+}
+
+.flyUp {
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+}
+
+.flyUp.ng-hide {
+    -webkit-transform: translateY(5000px);
+            transform: translateY(5000px);
+}
+
+.flyRight {
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+}
+
+
+.flyRight.ng-leave-active, .flyRight.ng-enter{
+    -webkit-transform: translateX(5000px) !important;
+            transform: translateX(5000px) !important;
+}
+
+.flyRight.ng-enter-active, .flyRight.ng-leave{
+    -webkit-transform: translateX(0px) !important;
+            transform: translateX(0px) !important;
+}
+
+.flyRight.ng-enter-stagger {
+  transition-delay: 0.1s;
+  transition-duration: 0s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.flyRight.ng-hide{
+    -webkit-transform: translateX(5000px);
+            transform: translateX(5000px);
+}
+
+@-webkit-keyframes flyUp {
+    from: {
+        -webkit-transform: translateY(1000px);
+                transform: translateY(1000px)
+    }
+    to: {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+
+@keyframes flyUp {
+    from: {
+        -webkit-transform: translateY(1000px);
+                transform: translateY(1000px)
+    }
+    to: {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes slide-left{
+  from {
+    left: 50%;
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-left{
+  from {
+    left: 50%;
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    opacity: 1;
+  }
+}
+@keyframes slide-left{
+  from {
+    left: 50%;
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes flyoutTop {
+    from {
+        top: 0;
+        display: block;
+    }
+    99% {
+        top: -1000px;
+    }
+    to {
+        top: -1000px;
+        display: none;
+    }
+}
+@keyframes flyoutTop {
+    from {
+        top: 0;
+        display: block;
+    }
+    99% {
+        top: -1000px;
+    }
+    to {
+        top: -1000px;
+        display: none;
+    }
+}
+
+@-webkit-keyframes flyinTop {
+    from {
+        top: -1000px;
+        display: none;
+    }
+    1% {
+        top: -1000px;
+        display: block;
+    }
+    to {
+        top: 0px;
+        display: block;
+    }
+}
+@keyframes flyinTop {
+    from {
+        top: -1000px;
+        display: none;
+    }
+    1% {
+        top: -1000px;
+        display: block;
+    }
+    to {
+        top: 0px;
+        display: block;
+    }
+}
+
+@-webkit-keyframes pulse{
+  from {border-color:black;color:black;}
+  50% {border-color:red;color:red;}
+  to {border-color:black;color:black;}
+}
+@keyframes pulse-back {
+  from {background-color:#f2f2f2;}
+  50% {background-color:#ffff00;}
+  to {background-color:#f2f2f2;}
+}
+@-webkit-keyframes pulse-back {
+  from {background-color:#f2f2f2;}
+  50% {background-color:#ffff00;}
+  to {background-color:#f2f2f2;}
+}
+@-webkit-keyframes fade-in{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+@keyframes fade-in{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+@-webkit-keyframes loading {
+  from{
+    -webkit-transform:rotate(0);
+    transform:rotate(0);
+  }
+  to{
+    -webkit-transform:rotate(360);
+    transform:rotate(360);
+  }
+}
+@keyframes loading {
+  from{
+    -webkit-transform:rotate(0);
+    transform:rotate(0);
+  }
+  to{
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+  }
+}

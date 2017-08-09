@@ -1,0 +1,92 @@
+input[type=text], input[type=search], input[type=number], input[type=password]{
+    border:2px solid black;
+    height: 100px;
+    padding:3px 10px;
+    font-family: inherit;
+    font-size: 40px;
+    background-color:transparent;
+  text-align: center;
+    transition: all 0.5s;
+    border-radius: 40px;
+}
+input[type=text]:hover, input[type=search]:hover{
+    border:2px solid lightblue;
+}
+input.margin {
+    margin-top: 30px;
+}
+input[type=file]{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+input[type=file] + label {
+  cursor:pointer;
+  transition: all 0.5s;
+}
+
+input[type=file]:focus + label,
+input[type=file] + label:hover {
+  background-color: red;
+  outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+input[type=password]:hover{
+    outline:2px solid lightblue;
+}
+button[type=submit] {
+    background-color:transparent;
+    height:100px;
+    width:300px;
+    font-size: 40px;
+    text-shadow:none !important;
+    border:1px solid black;
+    box-shadow:none !important;
+    cursor:pointer;
+    opacity:1;
+    margin-left: 0px;
+    transition: all 0.5s;
+    padding:10px!important;
+}
+button[type=submit].ng-hide {
+    opacity: 0
+}
+button[type=submit]:hover {
+  background-color:black;
+  color:white;
+}
+.messages-input{
+  width:90% !important;
+  text-align:center !important;
+  outline: 0 !important;
+}
+textarea {
+  height: 300px;
+  width:90%;
+  margin-left:5%;
+  margin-right:5%;
+  font-family: helvetica;
+  resize:vertical;
+  line-height:1.5em;
+  font-size: 30px;
+  border:2px solid black;
+  padding:5px;
+}
+.small-input {
+  outline: 0 !important;
+  border-bottom: 2px solid black;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  padding: 1px !important;
+  margin-bottom 5px;
+}
+.small-input:hover {
+  border-bottom-color: #f0f0f0 !important;
+}
+select{
+  font-size:40px;
+}

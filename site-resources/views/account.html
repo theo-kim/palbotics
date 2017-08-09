@@ -1,0 +1,14 @@
+<div class = "container">
+    <div class = "panel left-30 flyUp center" ng-show="open">
+        <img src = "/site-resources/images/profile-default.png" />
+        <span class = "caption large">{{name}}</span>
+        <span class = "caption medium no-margin"><i>@{{username}}</i></span>
+        <span class = "caption badge small">{{role}}</span>
+        <span class = "caption small"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{email}}</span>
+        <span class = "caption small"><i class="fa fa-clock-o" aria-hidden="true"></i> Joined {{ joined | date:"MMM d '''yy" }}</span>
+    </div>
+    <div class = "panel left-60 flyRight" ng-show="open">
+        <span class = "caption large">Account History</span>
+        <span class = "caption small badge warning">Coming Soon</span>
+    </div>
+</div>

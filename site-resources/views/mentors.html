@@ -1,0 +1,39 @@
+<div class = "container scrolled">
+    <div class = "container hidden flyRight" style = "padding-top: 0;" ng-show="open" ng-init="position=true">
+        <div class = "panel center-60 no-margin flyRight" ng-show="open" ng-init="position=true">
+            <i class="fa fa-search medium" aria-hidden="true"></i>
+            &nbsp;
+            <input type = "search" ng-model = "search" placeholder = "Search"/>
+            <span class = "right small badge caption no-margin button" ng-click="position=!position">Filters</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <span class = "caption small no-margin"><input type = "checkbox" id = "c" ng-model="unass" ng-init = "unass = true"/> <label for = "c"><span /></label> Unassigned Mentors</span>
+            <span class = "caption small no-margin"><input type = "checkbox" id = "d" ng-model = "unconf" ng-init = "unconf = true"/> <label for = "d"><span /></label> Unconfirmed Mentors</span>
+        </div>
+    </div>
+    <div ng-repeat="x in apps | filter: search | filter: (!unass || '') && {status: '!Unassigned'} | filter: (!unconf || '') && {status: '!Unconfirmed'}" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60">
+            <i class="fa fa-caret-up option {{position ? 'more' : 'less'}} large" aria-hidden="true" ng-click="position=!position"></i>
+            <span class="caption medium no-margin">{{x.first}} {{x.last}}</span>
+            <span class="caption small subtle no-margin">Mentor ID: {{x.id}}</span>
+            <span class="caption small {{x.status == 'Unassigned' ? 'error' : (x.status == 'Unconfirmed' ? 'caution' : 'good')}}">{{x.status}}</span>
+            <span class="caption small">{{(x.status == 'Unassigned') ? 'No assignment' : x.group + ':' + x.program }}</span>
+            <span class="caption xsmall no-margin">{{x.program_time}}</span>
+            <span class="caption xmall no-margin"><b>Group Assignment:</b> {{x.gid || 'Not Assigned'}}</span>
+            <span class = "caption small badge red button right xmargin" ng-click="drop(x.id)">Kick</span>
+            <span class = "caption small badge button right xmargin">Message</span>
+            <span class = "caption small badge button right xmargin {{(x.status == 'Unconfirmed') ? (x.gid == null ? 'green' : '') : 'disabled'}}" ng-click="grouping(x.id, x.status)">{{x.gid == null ? 'Assign' : 'Change'}} Group</span>
+            <span class = "caption small badge button right xmargin" ng-click="program(x)">{{x.status == 'Unconfirmed' ? 'Change' : 'Assign'}} Program</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <span class = "caption medium no-margin"><b>Application</b></span>
+            <span class = "caption small"><b>Preferred Program</b> {{x.program}}, {{x.group}}</span>
+            <span class = "caption small"><b>Session</b> {{x["program_time"]}}</span>
+            <span class = "caption small"><b>Contact Information</b></span>
+            <span class = "caption xsmall no-margin">{{x.phone}}</span>
+            <span class = "caption xsmall no-margin">{{x.email}}</span>
+            <span class = "caption small"><b>Grade</b> {{x.grade}}</span>
+            <span class = "caption small"><b>Shirt</b> {{x.shirt}}</span>
+        </div>
+    </div>
+</div>

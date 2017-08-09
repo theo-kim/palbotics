@@ -1,0 +1,19 @@
+<div class = "container scrolled">
+    <div ng-repeat="x in apps" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60 {{(x.pid == current) ? 'selected' : ''}}" style = "margin-top: 0">
+            <i class="fa fa-caret-up option {{position ? 'more' : 'less'}}" aria-hidden="true" ng-click="position=!position"></i>
+            <span class="caption medium no-margin">{{x.name}}</span>
+            <span class="caption xsmall no-margin subtle">Program ID: {{x.pid}}</span>
+            <span class="caption small">{{x.age}}</span>
+            <span class="caption small no-margin">{{x.start}} - {{x.end}}</span>
+            <span class = "caption small badge button right xmargin {{(x.pid == current) ? 'disabled' : ''}}" ng-click="assign(x.pid)">{{(x.pid == current) ? 'Assigned' : 'Assign'}}</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <span class="caption small no-margin"><b>Location</b></span>
+            <span class="caption xsmall">{{x.location.name}}</span>
+            <span class="caption xsmall no-margin">{{x.location.streetone}}</span>
+            <span class="caption xsmall no-margin">{{x.location.streettwo}}</span>
+            <span class="caption xsmall no-margin">{{x.location.city}}, {{x.location.state}} {{x.location.zip}}</span>
+        </div>
+    </div>
+</div>

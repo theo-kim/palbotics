@@ -1,0 +1,21 @@
+[07-Aug-2017 11:14:20 America/New_York] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'pbd01'@'localhost' (using password: YES) in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/site-resources/api/connectdb.php on line 2
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 50
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:22:56 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 50
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56
+[07-Aug-2017 13:24:13 America/New_York] PHP Notice:  Undefined offset: 0 in /home/yonkpclq/my.robotics.yonkers-pal.org/vendors/structure/index.php on line 56

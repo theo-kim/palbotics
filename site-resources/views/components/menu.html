@@ -1,0 +1,64 @@
+<div class="menu-container">
+    <ul class="menu">
+        <li id = 'profile' ng-click='profile()'>
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            <span>Account Management<span>
+        </li>
+        <li id = 'assignment' ng-if = 'role == "mentor"' ng-click='assignments()'>
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+            <span>View Assignment</span>
+        </li>
+        <li id = 'manage' ng-if = 'role=="mentor"' ng-click='manageTeams()'>
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <span>Manage Teams</span>
+        </li>
+        <li id = 'products' ng-if = 'role=="mentor"' ng-click='vendors()'>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span>Go to Product Vendors</span>
+        </li>
+        <li id = 'pending' ng-if = 'role=="parent"' ng-click='pendingEnrollments()'>
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            <span>Pending Enrollments</span>
+        </li>
+        <li id = 'pending' ng-if = 'role=="Lead Mentor"' ng-click='pending()'>
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            <span>Pending Registrations</span>
+        </li>
+        <li id = 'current-enrolement' ng-if = 'role=="parent"' ng-click='enrollments()'>
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            <span>Current Enrollments</span>
+        </li>
+        <li id = 'accepted' ng-if = 'role=="Lead Mentor"' ng-click='accepted()'>
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <span>Accepted Registrations</span>
+        </li>
+        <li id = 'programmed' ng-if = 'role=="Lead Mentor"' ng-click='programs()'>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <span>Programs</span>
+        </li>
+        <li id = 'mentors' ng-if = 'role=="Lead Mentor"' ng-click='mentors()'>
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <span>Mentors</span>
+        </li>
+        <li id = 'current-standings' ng-if = 'role=="Lead Mentor"' ng-click='standings()'>
+            <i class="fa fa-trophy" aria-hidden="true"></i>
+            <span>Current Standings</span>
+        </li>
+        <li id = 'certificate' ng-if = 'role=="Lead Mentor"' ng-click='certificates()'>
+            <i class="fa fa-certificate" aria-hidden="true"></i>
+            <span>Generate Certificates</span>
+        </li>
+        <li id = 'review' ng-if = 'role=="parent"'>
+            <i class="fa fa-picture-o" aria-hidden="true"></i>
+            <span>Review Programs</span>
+        </li>
+        <li id = 'messages'>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span>Messages</span>
+        </li>
+        <li id = 'logout' ng-click='logout()'>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <span>Logout</span>
+        </li>
+    </ul>
+</div>

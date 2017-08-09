@@ -1,0 +1,11 @@
+<div class = "container scrolled">
+    <div ng-repeat="x in apps | orderBy:'progression'" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60 {{x.active ? 'selected' : ''}}" style = "margin-top: 0">
+            <span class="caption xsmall no-margin subtle">Mission ID: {{x.moid}}</span>
+            <span class="caption small long">{{x.objective}}</span>
+            <span class="caption small"><b>Point Value:</b> {{x.value}}</span>
+            <span class="caption small no-margin"><b>Progression:</b> {{x.progression}}</span>
+            <input type = 'file' id = 'mission-goal' onchange="angular.element(this).scope().submit(event, angular.element(this).scope().x.moid, angular.element(this).scope().x.progression, angular.element(this).scope().x.value)"/><label for = 'mission-goal' class = "caption badge green right small">Submit</label>
+        </div>
+    </div>
+</div>

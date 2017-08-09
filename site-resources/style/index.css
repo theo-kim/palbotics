@@ -1,0 +1,328 @@
+@import url("animation.css");
+@import url("form.css");
+@import url("menu.css");
+@import url("modal.css");
+@import url("common.css");
+
+@media print{
+  .header{
+    display: none;
+  }
+  .back{
+    display:none;
+  }
+  .content{
+    overflow:visible !important;
+  }
+  .footer{
+    display:none;
+  }
+}
+
+body{
+  font-family:helvetica;
+  overflow:hidden;
+  padding:0 !important;
+  margin:0 !important;
+  background-color: #eee;
+}
+
+ng-view {
+    display: block;
+    position:absolute;
+    top: 70px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-bottom: 100px;
+}
+
+.left-30 {
+    width: calc(33% - 60px) !important;
+}
+
+.left-60 {
+    width: calc(66% - 60px) !important;
+}
+
+.center-60 {
+    width: calc(60% - 60px) !important;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 20%;
+
+}
+
+.badge {
+    padding: 10px 20px;
+}
+
+.large {
+    font-size: 30px !important;
+}
+
+.medium {
+    font-size: 22px !important;
+}
+
+.small {
+    font-size: 16px !important;
+}
+
+.xsmall {
+    font-size: 14px !important;
+}
+
+.heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px #888;
+    z-index:1000;
+}
+
+    .heading .icon {
+        height:50px;
+        position:relative;
+        border-radius:50%;
+        float: left;
+        position:relative;
+        top: 50%;
+        margin: 0px 10px 0px 20px;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+    }
+
+    .heading h1 {
+        font-family: helvetica;
+        font-size: 24px;
+        display: block;
+        float: left;
+        margin: 0px;
+        position:relative;
+        top: 50%;
+        font-weight: normal;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+    }
+
+login {
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.opener {
+    position:relative;
+    height:100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    transition: top 1s;
+}
+
+.opener.ng-hide-add {
+    -webkit-animation: 1s flyoutTop;
+            animation: 1s flyoutTop;
+}
+
+.opener.ng-hide-remove {
+    -webkit-animation: 1s flyinTop;
+            animation: 1s flyinTop;
+}
+
+#back {
+    font-size: 36px;
+    display: block;
+    float:left;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    font-weight: normal;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.loading{
+  -webkit-animation-name: loading;
+          animation-name: loading;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  width:100px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+#password-reset{
+  color:#4fbac8;
+  cursor:pointer;
+  margin-top:5px;
+}
+
+#password-reset:hover{
+  text-decoration: underline;
+  color:#6abac8;
+}
+
+.fullscreen {
+  position:relative;
+  height:100%;
+  width:100%;
+}
+
+.verticle-middle{
+  position:relative;
+  top:50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.title{
+  position:absolute !important;
+  top:50%;
+  left:50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+}
+
+.info{
+  display:block;
+  font-size: 18px;
+}
+
+.error{
+  margin-top:5px;
+  color:red;
+}
+
+.good{
+  margin-top:5px;
+  color:green;
+}
+
+.caution {
+    color: gold;
+    margin-top: 5px;
+}
+
+#loading {
+  width:100px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+.datasheet {
+  display: block;
+  float:left;
+  top:0;
+  margin-left:25px;
+  width:50%;
+  text-align: left;
+  font-size:15px;
+}
+.small-reel{
+  width:100%;
+  height:50px;
+  margin-top:15px;
+  float:left;
+  text-align:left;
+  position:relative;
+}
+.small-reel img{
+  position: relative;
+  height:100%;
+  margin-right:10px;
+  transition: all 0.5s;
+  cursor:pointer;
+}
+.file-loading{
+  margin-left: auto;
+  margin-right: auto;
+}
+.filter-page{
+  background-color:rgba(0,0,0,0.5);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:9990;
+}
+.sort-panel{
+  position:absolute;
+  top:100px;
+  left:50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.footer{
+  z-index:1000;
+  text-align: right;
+  position: fixed;
+  bottom:0;
+  right:25px;
+  padding: 20px;
+}
+    .footer div {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        text-align: center;
+    }
+        .footer div i {
+            display: inline-block;
+            font-size: 24px;
+            color: #333;
+        }
+        .footer div span {
+            visibility: hidden;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            min-width: 100px;
+            font-size: 14px;
+            -webkit-transform: translateX(-55%);
+                    transform: translateX(-55%);
+            padding: 5px 10px;
+            text-align: center;
+            background: #333;
+            color: #eee;
+            border-radius: 10px;
+        }
+        .footer div span::after {
+            content: " ";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+        .footer div:hover span {
+            visibility: visible;
+        }
+
+
+#writem{
+  opacity:1;border:2px solid black;height:50px;width:200px;margin-top:10px;
+}

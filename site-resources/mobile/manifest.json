@@ -1,0 +1,14 @@
+{
+  "short_name": "myPALBOTICS",
+  "name": "myPALBOTICS Portal",
+  "icons": [
+    {
+      "src": "/site-resources/icons/mipmap-xxxhdpi/ic_launcher.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.php",
+  "display": "standalone",
+  "orientation": "portrait"
+}

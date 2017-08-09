@@ -1,0 +1,29 @@
+<div class = "container">
+    <div ng-repeat="x in apps" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <i class="fa fa-caret-up option {{position ? 'more' : 'less'}}" aria-hidden="true" ng-click="position=!position"></i>
+            <span class="caption medium no-margin">{{x.first}} {{x.last}}</span>
+            <span class="caption small subtle no-margin">Application ID: {{x.id}}</span>
+            <span class="caption small">{{x.age}}: {{x.program}}</span>
+            <span class="caption xsmall no-margin">{{x.program_time}}</span>
+            <span class = "caption small badge warning button right disabled xmargin">Waitlist</span>
+            <span class = "caption small badge red button right xmargin disabled">Reject</span>
+            <span class = "caption small badge green button right xmargin disabled">Accept</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <span class="caption small"><b>Gender:</b> {{x.gender}}</span>
+            <span class="caption small"><b>School:</b> {{x.school}}, {{x.grade}}</span>
+            <span class="caption small"><b>Shirt:</b> {{x.shirt}}</span>
+
+            <span class="caption small"><b>Parent:</b> {{x['first_parent']}} {{x['last_parent']}}</span>
+            <span class="caption xsmall no-margin"><b>Phone:</b> {{x.phone}}</span>
+            <span class="caption xsmall no-margin"><b>Email:</b> {{x.email}}</span>
+
+            <span class="caption small"><b>Address:</b></span>
+            <span class="caption xsmall no-margin">{{x.street_1}}</span>
+            <span class="caption xsmall no-margin">{{x.street_2}}</span>
+            <span class="caption xsmall no-margin">{{x.city}}, {{x.state}} {{x.zip}}</span>
+
+        </div>
+    </div>
+</div>

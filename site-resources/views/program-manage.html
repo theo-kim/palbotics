@@ -1,0 +1,26 @@
+<div class = "container scrolled">
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Missions</span>
+            <span class="caption small no-margin">Missions are the small tasks that each group must complete in order to earn points</span>
+            <span class="caption small"><b>Number of Missions:</b> {{missions || '0'}}</span>
+            <span class = "caption small badge button right xmargin" ng-click="mission()">Edit Missions</span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Groups</span>
+            <span class="caption small no-margin">Participants in the program are split into smaller groups that are led by mentors and collaborate as teams.</span>
+            <span class="caption small"><b>Number of Groups:</b> {{groups || '0'}}</span>
+            <span class = "caption small badge button right xmargin" ng-click="groupsm()">Edit Groups</span>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "margin-top: 0">
+            <span class="caption medium no-margin">Roster</span>
+            <span class="caption small no-margin">View a roster with the program's participants.</span>
+            <span class="caption small"><b>Number of Participants:</b> {{participants || '0'}}</span>
+            <span class = "caption small badge button right xmargin" ng-click="roster()">View Roster</span>
+        </div>
+    </div>
+</div>

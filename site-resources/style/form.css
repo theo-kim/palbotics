@@ -1,0 +1,143 @@
+input[type=text],
+input[type=search],
+input[type=number],
+input[type=password] {
+    border: 1px solid #333;
+    height: 30px;
+    padding:1px 10px;
+    font-family: inherit;
+    font-size: 16px;
+    background-color:transparent;
+    transition: all 0.5s;
+    border-radius: 30px;
+    width: 200px;
+}
+    input[type=text]:hover,
+    input[type=search]:hover,
+    input[type=number]:hover,
+    input[type=password]:hover{
+        border:1px solid lightblue;
+        outline: 0;
+    }
+    input[type=text]:focus,
+    input[type=search]:focus,
+    input[type=number]:focus,
+    input[type=password]:focus {
+        border:1px solid lightblue;
+        outline: 0;
+    }
+    input.xshort {
+        width: 50px;
+    }
+    input.short {
+        width: 100px;
+    }
+    input.long {
+        width: 300px;
+    }
+    input.margin {
+        margin-top: 10px;
+    }
+input[type=checkbox] {
+  display:none;
+}
+input[type="checkbox"] + label {
+  display:inline-block;
+  -webkit-transform: translateY(0.25em);
+          transform: translateY(0.25em);
+  margin-left: 5px;
+  width:15px;
+  height:15px;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+input[type="checkbox"] + label span {
+  display:block;
+  background-color: transparent;
+  height: 9px;
+  width: 9px;
+  position:relative;
+  top: 3px;
+  lefT: 3px;
+}
+input[type="checkbox"] + label:hover {
+  border: 2px solid lightblue;
+}
+input[type="checkbox"]:checked + label span {
+  background-color:#000;
+}
+input[type=file]{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+input[type=file] + label {
+  cursor:pointer;
+  transition: all 0.5s;
+}
+
+input[type=file]:focus + label,
+input[type=file] + label:hover {
+  background-color: red;
+  outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+button[type=submit] {
+    background-color:transparent;
+    height:30px;
+    width:100px;
+    font-size: 16px;
+    text-shadow:none !important;
+    border:none;
+    box-shadow:none !important;
+    cursor:pointer;
+    margin-left: 10px;
+    transition: all 0.5s;
+    opacity: 1.0;
+    display: inline-block !important;
+}
+
+button[type=submit].ng-hide {
+    display: inline-block !important;
+}
+
+button[type=submit]:hover {
+  background-color:black;
+  color:white;
+}
+.messages-input{
+  width:90% !important;
+  text-align:center !important;
+  outline: 0 !important;
+}
+textarea {
+  height: 100px;
+  margin-top: 20px;
+  font-family: helvetica;
+  resize:vertical;
+  width: calc(100% - 10px);
+  line-height:1.5em;
+  font-size: 16px;
+  border:1px solid #333;
+  padding:5px;
+  border-radius: 10px;
+}
+textarea:focus {
+    outline: 0;
+    border-color: lightblue;
+}
+.small-input {
+  outline: 0 !important;
+  border-bottom: 2px solid black;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  padding: 1px !important;
+  margin-bottom 5px;
+}
+.small-input:hover {
+  border-bottom-color: #f0f0f0 !important;
+}
