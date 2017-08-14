@@ -59,6 +59,7 @@
     <script src="site-resources/js/directives.js"></script>
     <script src="site-resources/js/controllers.js"></script>
     <script src="site-resources/js/services.js"></script>
+    <script src="site-resources/js/factories.js"></script>
 </body>
 
 </html>

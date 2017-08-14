@@ -1,8 +1,7 @@
 <?php
-
 error_reporting(E_ALL);
 
-require "connectdb.php";
+require "../connectdb.php";
 
 $username = $_GET["username"];
 

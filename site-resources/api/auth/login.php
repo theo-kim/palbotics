@@ -1,7 +1,8 @@
 <?php
+
 error_reporting(E_ALL);
 
-require "../connectdb.php";
+require_once "../connectdb.php";
 require "create_auth.php";
 
 $username = $_POST["username"];

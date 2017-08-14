@@ -14,6 +14,7 @@ if ($uid == -1 && $role == 0) {
             $finArr = array();
 
             while ($stmt->fetch()) {
+                $arr["uid"] = $uid;
                 $arr["id"] = $id;
                 $arr["first"] = $first;
                 $arr["last"] = $last;
@@ -54,20 +55,17 @@ if ($uid == -1 && $role == 0) {
                     $arr["status"] = "ERROR";
                     break;
                 }
-                $arr["uid"] = $uid;
 
                 $finArr[] = $arr;
-                echo json_encode($finArr);
             }
+            echo json_encode($finArr);
         } else {
-            http_response_code(500);
             echo "SQL Error: ".$mysqli->error;
         }
 
         $stmt->close();
         $mysqli->close();
     } else {
-        http_response_code(500);
         echo "SQL Error: ".$mysqli->error;
     }
 } elseif (isset($uid) && $uid > 0 && $role == 1) {
@@ -123,8 +121,9 @@ if ($uid == -1 && $role == 0) {
             $arr["uid"] = $uid;
             $arr["pid"] = $pid;
             $finArr[] = $arr;
-            echo json_encode($finArr);
         }
+
+        echo json_encode($finArr);
 
         $stmt->close();
         $mysqli->close();
@@ -132,5 +131,5 @@ if ($uid == -1 && $role == 0) {
         echo "state";
     }
 } else {
-    http_response_code(400);
+    echo "fail";
 }
