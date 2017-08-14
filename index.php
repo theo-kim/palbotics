@@ -53,13 +53,12 @@
         <menu ng-if="logged && menu" class="slide"></menu>
         <ng-view></ng-view>
         <footer></footer>
-
-        <!-- Angular script loading -->
-        <script src="site-resources/js/app.js"></script>
-        <script src="site-resources/js/directives.js"></script>
-        <script src="site-resources/js/controllers.js"></script>
-        <script src="site-resources/js/services.js"></script>
     </div>
+    <!-- Angular script loading -->
+    <script src="site-resources/js/app.js"></script>
+    <script src="site-resources/js/directives.js"></script>
+    <script src="site-resources/js/controllers.js"></script>
+    <script src="site-resources/js/services.js"></script>
 </body>
 
 </html>

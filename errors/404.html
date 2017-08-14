@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Not Found</title>
+
+    <!-- Stylesheets -->
+    <link rel="icon" type="image/png" href="/site-resources/icons/mipmap-xxxhdpi/ic_launcher.png" />
+    <link rel="stylesheet" type="text/css" href="/site-resources/style/index.css">
+    <link rel="stylesheet" type="text/css" href="/site-resources/js/dependencies/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" id="fa-style" href="/site-resources/font/fa/css/font-awesome.min.css">
+
+    <!-- AngularJS -->
+    <script src="/site-resources/js/dependencies/angular/angular.min.js"></script>
+    <script src="/site-resources/js/dependencies/angular/angular-animate.min.js"></script>
+    <script src="/site-resources/js/dependencies/angular/angular-route.min.js"></script>
+
+    <!-- Other pre-loaded JS -->
+    <script src="/site-resources/js/dependencies/jquery/jquery.js"></script>
+    <script src="/site-resources/js/mobileVerify.js"></script>
+
+    <!-- Mobile Compatibility Check -->
+    <script>
+        if (window.mobilecheck() == false && screen.height < screen.width) {
+            $("link[rel=stylesheet]:not(#fa-style)").attr({ href: "/site-resources/style/index.css", });
+        }
+        else {
+            $("link[rel=stylesheet]:not(#fa-style)").attr({ href: "/site-resources/style/mobile.css", });
+        }
+        $(".icon").width($(".icon").height());
+    </script>
+</head>
+
+<body>
+    <div ng-app="app">
+        <header></header>
+        <div class = "container center base" style = "width:100%">
+            <div class = "verticle-middle">
+                <div class = "caption large">
+                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                    There's no page here...</div>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+    <!-- Angular script loading -->
+    <script src="/site-resources/js/app.js"></script>
+    <script src="/site-resources/js/directives.js"></script>
+    <script src="/site-resources/js/controllers.js"></script>
+    <script src="/site-resources/js/services.js"></script>
+</body>
+
+</html>

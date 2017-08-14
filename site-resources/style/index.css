@@ -34,7 +34,16 @@ ng-view {
     bottom: 0px;
     left: 0px;
     right: 0px;
-    padding-bottom: 100px;
+}
+
+.base {
+    display: block;
+    position: absolute;
+    top: 70px;
+    top: 70px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 .left-30 {

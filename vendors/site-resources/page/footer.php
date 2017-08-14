@@ -21,7 +21,7 @@
   <div class = "column-2">Copyright &copy; 2016 <?=$title;?> Inc.</div>
 </div>
 <input type = "hidden" value = "<?=$vendor;?>" class = "vendor">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="/site-resources/js/dependencies/jquery/jquery.js"></script>
 <script src = "../site-resources/js/modal.js"></script>
 <script src = "../site-resources/js/login.js"></script>
 <script src = "../site-resources/js/shopping.js"></script>

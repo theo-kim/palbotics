@@ -1,3 +1,4 @@
 site-resources/images/teams
 site-resources/api/connectdb.php
 vendors/site-resources/api/connectdb.php
+.ftpconfig

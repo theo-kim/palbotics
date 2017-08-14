@@ -1,12 +1,12 @@
 app.directive('header', function () {
     return {
-        templateUrl: 'site-resources/views/components/header.html',
+        templateUrl: '/site-resources/views/components/header.html',
     };
 });
 
 app.directive('footer', function () {
     return {
-        templateUrl: 'site-resources/views/components/footer.html'
+        templateUrl: '/site-resources/views/components/footer.html'
     };
 });
 
@@ -45,7 +45,7 @@ app.directive('menu', function () {
         scope: {
             role: '@role'
         },
-        templateUrl: 'site-resources/views/components/menu.html',
+        templateUrl: '/site-resources/views/components/menu.html',
         controller: 'menuController'
     }
 });
