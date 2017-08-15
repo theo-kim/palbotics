@@ -13,6 +13,7 @@ app.controller('assignGroupController', assignGroupController);
 app.controller('manageTeamController', manageTeamController);
 app.controller('viewMissionController', viewMissionController);
 app.controller('awardTeamController', awardTeamController);
+app.controller('mailController', mailController);
 
 function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializerJQLike, httpPro) {
     function checkUsername() {
@@ -136,6 +137,7 @@ function menuController($scope, $rootScope, $window, $location, $timeout, httpPr
     $scope.programs = () => $window.location.hash = "programs";
     $scope.manageTeams = () => $window.location.hash = "team/manage";
     $scope.vendors = () => $window.location.hash = "vendors";
+    $scope.mail = () => $window.location.hash = "mail";
     $scope.role = $rootScope.userData.role;
     $timeout(() => $rootScope.menu = true, 1000);
 }
@@ -196,7 +198,7 @@ function acceptedAppController($scope, $rootScope, $timeout, httpPro, redirect) 
     }
 }
 
-function programController($scope, $rootScope, httpPro, redirect) {
+function programController($scope, $rootScope, httpPro, redirect, $timeout) {
     function load() {
         httpPro.getJSONArray('site-resources/api/list_programs.php', {
                 flag: true
@@ -210,13 +212,61 @@ function programController($scope, $rootScope, httpPro, redirect) {
                 console.error(err);
             });
     }
+    function add() {
+        const params = {
+            type: $scope.type,
+            group: $scope.age,
+            capacity: $scope.capacity,
+            starting: $scope.start,
+            ending: $scope.end,
+            location: $scope.location || 1
+        }
+        $rootScope.loading = true;
+        httpPro.postSuccessPHP('/site-resources/api/programs/create.php', params)
+            .then(() => {
+                $rootScope.loading = false;
+                $scope.apps = [];
+                $scope.$apply();
+                load();
+            })
+            .catch((err) => {
+                alert("Oops, something went wrong...");
+                console.error(err);
+            });
+    }
+    function drop(id) {
+        const confirm = prompt("Please confirm your action by typing CANCEL in the prompt below:", "");
+        if (confirm !== null && confirm === "CANCEL") {
+            $rootScope.loading = true;
+            httpPro.postSuccessPHP("/site-resources/api/programs/drop.php", {pid: id})
+                .then(() => {
+                    $scope.apps = [];
+                    $rootScope.loading = false;
+                    $scope.$apply();
+                    load();
+                })
+                .catch((err) => {
+                    if (err === "Dependencies") alert("You cannot delete a program with accepted applicants");
+                    else {
+                        alert("Something went wrong...");
+                        console.error(err);
+                    }
+                });
+        } else {
+            alert("Nevermind");
+        }
+    }
     $rootScope.menu = false;
-    $rootScope.open = true;
-    $rootScope.page = "Programs";
     $scope.manage = function(id) {
         redirect("programs/" + id + "/manage", "programs");
     }
-    load();
+    $scope.add = add;
+    $scope.drop = drop;
+    $timeout(function() {
+        $rootScope.open = true;
+        $rootScope.page = "Programs";
+        load();
+    }, 1000);
 }
 
 function mentorController($scope, $rootScope, $timeout, httpPro, redirect) {
@@ -850,4 +900,23 @@ function viewMissionController($scope, $rootScope, $route, $http, $httpParamSeri
             }
         }).then(response);
     }
+}
+
+function mailController ($scope, $rootScope, httpPro) {
+    function load() {
+        httpPro.getJSONArray("/site-resources/api/messages/list.php", {})
+            .then((res) => {
+                console.log(res);
+                $scope.apps = res;
+                $scope.$apply();
+            })
+            .catch((err) => {
+                alert("Oops, something went wrong...");
+                console.log(err);
+            });
+    }
+    $rootScope.menu = false;
+    $rootScope.open = true;
+    $rootScope.page = "Messages";
+    load();
 }

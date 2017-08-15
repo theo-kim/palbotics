@@ -1,0 +1,30 @@
+<div class = "container scrolled">
+    <div class = "container hidden flyRight" style = "padding-top: 0;" ng-show="open" ng-init="position=true">
+        <div class = "panel center-60 no-margin flyRight" ng-show="open" ng-init="position=true">
+            <i class="fa fa-search medium" aria-hidden="true"></i>
+            &nbsp;
+            <input type = "search" ng-model = "search" placeholder = "Search"/>
+            <span class = "right small badge caption no-margin button" ng-click="position=!position">Send Message</span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position">
+            <input type = 'text' ng-model = "to" class = "small margin" placeholder="To..."><br>
+            <input type = 'text' ng-model = "subject" class = "small margin" placeholder="Subject">
+            <textarea ng-model="message" placeholder="Message"></textarea>
+        </div>
+    </div>
+    <div class = "container hidden flyRight" ng-repeat="x in apps | filter: search" style = "padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class = "panel center-60" style = "cursor:pointer;padding: 0; background: transparent; box-shadow:none;" ng-init="position=true" ng-show="open" ng-click="position=!position">
+            <img src = "/site-resources/images/profile-default.png" class = 'message-icon'/>
+            <span class = "left caption no-margin" style = "padding-left: 20px; display:inline-block">
+                <span class = "caption no-margin small">{{x.name}}</span>
+                <span class = "caption no-margin xsmall subtle">Last Message: {{x.body[0].timestamp | date}}</span>
+            </span>
+            <span class = "right caption no-margin" style = "display:inline-block">
+                <span class = "caption no-margin xsmall subtle" style="overflow:hidden;width:200px;line-height: 1.25em;max-height:2.5em;" ng-bind-html="x.body[0].message | removeBR | unsafe"></span>
+            </span>
+        </div>
+        <div class = "poptart center-60" ng-hide="position" style = "background:transparent; max-height: 1000px">
+            <span class = "caption badge {{n.self ? 'right' : 'left'}} {{n.self ? 'dark' : ''}}" ng-repeat="n in x.body | orderBy: 'mid' : false" ng-bind-html="n.message | unsafe" style="max-width: 60%;clear:left;"></span>
+        </div>
+    </div>
+</div>

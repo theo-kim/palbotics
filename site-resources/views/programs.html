@@ -1,20 +1,52 @@
-<div class = "container scrolled">
-    <div ng-repeat="x in apps" class = "container hidden flyRight" style = "padding-top: 0" ng-init="position=true" ng-show="open">
-        <div class = "panel center-60" style = "margin-top: 0">
+<div class="container scrolled">
+    <div ng-repeat="x in apps" class="container hidden flyRight" style="padding-top: 0" ng-init="position=true" ng-show="open">
+        <div class="panel center-60" style="margin-top: 0">
             <i class="fa fa-caret-up option {{position ? 'more' : 'less'}} large" aria-hidden="true" ng-click="position=!position"></i>
             <span class="caption medium no-margin">{{x.name}}</span>
             <span class="caption xsmall no-margin subtle">Program ID: {{x.pid}}</span>
             <span class="caption small">{{x.age}}</span>
             <span class="caption small no-margin">{{x.start}} - {{x.end}}</span>
-            <span class = "caption small badge red button right disabled xmargin">Cancel</span>
-            <span class = "caption small badge button right xmargin" ng-click="manage(x.pid)">Manage</span>
+            <span class="caption small badge red button right xmargin" ng-click="drop(x.pid)">Cancel</span>
+            <span class="caption small badge button right xmargin" ng-click="manage(x.pid)">Manage</span>
         </div>
-        <div class = "poptart center-60" ng-hide="position">
+        <div class="poptart center-60" ng-hide="position">
             <span class="caption small no-margin"><b>Location</b></span>
             <span class="caption xsmall">{{x.location.name}}</span>
             <span class="caption xsmall no-margin">{{x.location.streetone}}</span>
             <span class="caption xsmall no-margin">{{x.location.streettwo}}</span>
             <span class="caption xsmall no-margin">{{x.location.city}}, {{x.location.state}} {{x.location.zip}}</span>
+        </div>
+    </div>
+    <div class="container hidden flyRight" style="padding-top:0;" ng-init="position=true" ng-show="open">
+        <div class="panel center-60 green center medium button" style="box-shadow:none;margin-top:0px" ng-click="position=!position">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Add New Program
+        </div>
+        <div class="poptart center-60" ng-hide="position">
+            <span class="caption medium no-margin">Create A New Program</span>
+            <span class="caption small no-margin">Create a new PALBOTICS Program.  Fill in the fields below.</span>
+            <select class = "small xmargin" ng-model = "type">
+                <option>Flint</option>
+                <option>Eclipse</option>
+                <option>League</option>
+                <option>Academy</option>
+            </select>
+            <span class="caption xsmall no-margin subtle"><b>Program Type</b></span>
+            <select class = "small margin" ng-model = "age">
+                <option>PALBOTICS Prime</option>
+                <option>PALBOTICS Boost</option>
+            </select>
+            <span class="caption xsmall no-margin subtle"><b>Program Age</b></span>
+            <input type = 'date' ng-model = "start" class = "small xmargin">
+            <span class="caption xsmall no-margin subtle"><b>Start Date</b></span>
+            <input type = 'date' ng-model = "end" class = "small margin">
+            <span class="caption xsmall no-margin subtle"><b>End Date</b></span>
+            <input type = 'number' ng-model = "capacity" class = "small margin">
+            <span class="caption xsmall no-margin subtle"><b>Capacity</b></span>
+            <select class = "small margin" ng-model = "location">
+                <option value = "1">Yonkers Police Athletic League</option>
+            </select>
+            <span class="caption xsmall no-margin subtle"><b>Location</b></span>
+            <span class="caption badge green xmargin right button" ng-click="add()">Start Program</span>
         </div>
     </div>
 </div>

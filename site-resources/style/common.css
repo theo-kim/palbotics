@@ -41,7 +41,8 @@ span {
     z-index: 90;
     padding: 20px;
     max-height: 250px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .center {
@@ -98,6 +99,11 @@ span {
     color: #fff;
 }
 
+.dark {
+    background-color: #444;
+    color: #FFF;
+}
+
 .disabled {
     opacity: 0.5;
     cursor: not-allowed !important;
@@ -109,7 +115,7 @@ span {
 
 .button {
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
 
 .button:hover:not(.disabled) {
@@ -165,4 +171,15 @@ span {
 .less {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
+}
+
+img.message-icon {
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.left {
+    float: left;
 }

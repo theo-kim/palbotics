@@ -35,5 +35,7 @@ if ($role == 0) {
         $stmt->close();
         $mysqli->close();
     }
+} else {
+    echo "No Variables";
 }
 echo json_encode($finArr);

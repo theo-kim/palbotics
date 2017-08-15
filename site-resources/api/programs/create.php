@@ -8,12 +8,13 @@ require "../auth/get_permissions.php";
 $type = $_POST["type"];
 $age = $_POST["group"];
 $capacity = $_POST["capacity"];
-$start =  date('Y-m-d H:i:s', strtotime($_POST["starting"]));;
-$end = date('Y-m-d H:i:s', strtotime($_POST["ending"]));
+$start =  date('Y-m-d H:i:s', strtotime($_POST["starting"]) + 86399);
+$end = date('Y-m-d H:i:s', strtotime($_POST["ending"]) + 86399);
+$location = $_POST["location"];
 
 if (isset($type) && isset($capacity) && isset($start) && isset($end) && isset($age)) {
-    if ($stmt = $mysqli->prepare("INSERT INTO programs (name, start, end, age, size) VALUES (?, ?, ?, ?, ?)")) {
-        $stmt->bind_param("sssss", $type, $start, $end, $age, $capacity);
+    if ($stmt = $mysqli->prepare("INSERT INTO programs (name, start, end, age, size, location) VALUES (?, ?, ?, ?, ?, ?)")) {
+        $stmt->bind_param("ssssss", $type, $start, $end, $age, $capacity, $location);
         $stmt->execute();
         $a = $mysqli->affected_rows;
 

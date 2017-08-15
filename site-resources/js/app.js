@@ -24,7 +24,8 @@ app.run(function($rootScope, $window, $timeout, AuthService) {
             'account': -1,
             'messages': -1,
             'team': 2,
-            'vendors': 2
+            'vendors': 2,
+            'mail': -1
         };
 
         if (!to || unrestricted.indexOf(to.originalPath) >= 0) {
@@ -112,6 +113,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when("/team/:id/awards", {
             templateUrl: "/site-resources/views/awards.html",
             controller: "awardTeamController"
+        })
+        .when("/mail", {
+            templateUrl: "/site-resources/views/mail.html",
+            controller: "mailController"
         });
 });
 
@@ -131,5 +136,11 @@ app.service('sharedProperties', function() {
 app.filter('unsafe', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);
+    };
+});
+
+app.filter('removeBR', function() {
+    return function(val) {
+        return val.split("<br />").join(" ");
     };
 });
