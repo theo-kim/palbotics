@@ -7,7 +7,7 @@
             <span class = "right small badge caption no-margin button" ng-click="position=!position">Send Message</span>
         </div>
         <div class = "poptart center-60" ng-hide="position">
-            <input type = 'text' ng-model = "to" class = "small margin" placeholder="To..."><br>
+            <input type = 'text' ng-model = "to" class = "small margin" placeholder="To..." ng-click="showTo("><br>
             <input type = 'text' ng-model = "subject" class = "small margin" placeholder="Subject">
             <textarea ng-model="message" placeholder="Message"></textarea>
         </div>

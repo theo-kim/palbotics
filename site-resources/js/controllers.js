@@ -15,14 +15,14 @@ app.controller('viewMissionController', viewMissionController);
 app.controller('awardTeamController', awardTeamController);
 app.controller('mailController', mailController);
 
-function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializerJQLike, httpPro) {
+function loginController($scope, $rootScope, $timeout, httpPro) {
     function checkUsername() {
         httpPro.getSuccess('site-resources/api/auth/username.php', {
                 username: $scope.username
             })
             .then(() => {
                 $scope.user = $scope.username;
-                $scope.message = `Welcome, <b>${$scope.user}</b>, please enter your password.`
+                $scope.message = `Welcome, <b>${$scope.user}</b>, please enter your password.`;
                 $scope.checked = false;
                 $scope.username = "";
                 $scope.placeholder = "Password";
@@ -34,9 +34,10 @@ function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializ
             .catch((err) => {
                 $scope.error = "That username wasn't found.";
                 $timeout(() => $scope.error = "", 2500);
+                console.error(err);
                 $scope.$apply();
             });
-    };
+    }
 
     function checkPassword() {
         const url = '/site-resources/api/auth/login.php';
@@ -51,6 +52,7 @@ function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializ
             .catch((err) => {
                 $scope.error = "Sorry, incorrect password.";
                 $scope.$apply();
+                console.error(err);
                 $timeout(() => $scope.error = "", 2500);
             });
     }
@@ -78,9 +80,7 @@ function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializ
             })
             .then(() => {
                 $rootScope.loading = false;
-                $scope.good = `An email with instructions to reset the
-                    password has been sent to the email on file.
-                    Please allow up to 10 minutes to receive it.`;
+                $scope.good = 'An email with instructions to reset the password has been sent to the email on file. Please allow up to 10 minutes to receive it.';
                 $scope.$apply();
                 $timeout(() => $scope.good = "", 2500);
             })
@@ -94,13 +94,15 @@ function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializ
 
     function check () {
         httpPro.getInt('/site-resources/api/auth/get_role.php', {})
-            .then((res) => {
+            .then(() => {
                 $scope.passed = true;
                 fetchUserData();
             })
             .catch((err) => {
                 $rootScope.logged = false;
                 $scope.passed = false;
+                $scope.$apply();
+                console.error(err);
             });
     }
 
@@ -108,15 +110,14 @@ function loginController($scope, $rootScope, $http, $timeout, $httpParamSerializ
     $scope.placeholder = "Username";
     $scope.type = "text";
     $scope.isUsername = function() {
-        if ($scope.username.length > 0) $scope.checked = true;
-        else $scope.checked = false
-    }
+        $scope.checked = $scope.username.length > 0;
+    };
     $scope.checkForm = checkUsername;
     $scope.forgotPassword = forgot;
     check();
 }
 
-function menuController($scope, $rootScope, $window, $location, $timeout, httpPro) {
+function menuController($scope, $rootScope, $window, $timeout, httpPro) {
     $rootScope.page = "myPALBOTICS";
     $scope.logout = function() {
         httpPro.postSuccessPHP('/site-resources/api/auth/logout.php', {})
@@ -126,8 +127,9 @@ function menuController($scope, $rootScope, $window, $location, $timeout, httpPr
             })
             .catch((err) => {
                 alert("Oops, something went wrong...");
+                console.error(err);
             });
-    }
+    };
     $scope.certificates = () => $window.open("./certificates.php");
     $scope.standings = () => $window.open("./standings.php");
     $scope.profile = () => $window.location.hash = "account";
@@ -155,7 +157,7 @@ function accountController($scope, $rootScope, $timeout) {
     }, 1000)
 }
 
-function pendingAppController($scope, $rootScope, $timeout, httpPro) {
+function pendingAppController($scope, $rootScope, httpPro) {
     function load() {
         httpPro.getJSONArray("site-resources/api/applications/pending/list.php", {
                 uid: -1
@@ -219,8 +221,8 @@ function programController($scope, $rootScope, httpPro, redirect, $timeout) {
             capacity: $scope.capacity,
             starting: $scope.start,
             ending: $scope.end,
-            location: $scope.location || 1
-        }
+            location: $scope.location || 1,
+        };
         $rootScope.loading = true;
         httpPro.postSuccessPHP('/site-resources/api/programs/create.php', params)
             .then(() => {
@@ -259,7 +261,7 @@ function programController($scope, $rootScope, httpPro, redirect, $timeout) {
     $rootScope.menu = false;
     $scope.manage = function(id) {
         redirect("programs/" + id + "/manage", "programs");
-    }
+    };
     $scope.add = add;
     $scope.drop = drop;
     $timeout(function() {
@@ -269,7 +271,7 @@ function programController($scope, $rootScope, httpPro, redirect, $timeout) {
     }, 1000);
 }
 
-function mentorController($scope, $rootScope, $timeout, httpPro, redirect) {
+function mentorController($scope, $rootScope, httpPro, redirect) {
     function load() {
         httpPro.getJSONArray('/site-resources/api/mentors/list.php', {
                 flag: true
@@ -354,7 +356,7 @@ function mPController($scope, $rootScope, $route, $http, $httpParamSerializerJQL
 
         const response = function(res) {
             const data = parseInt(res.data);
-            if (typeof data !== "number") alert("Oops, something went wrong")
+            if (typeof data !== "number") alert("Oops, something went wrong");
             else {
                 $scope.current = data;
                 load();
@@ -369,7 +371,7 @@ function mPController($scope, $rootScope, $route, $http, $httpParamSerializerJQL
         const params = $httpParamSerializerJQLike({
             pid: id,
             vid: $scope.mentorID
-        })
+        });
         const response = function(res) {
             $rootScope.loading = false;
             const data = res.data;
@@ -378,7 +380,7 @@ function mPController($scope, $rootScope, $route, $http, $httpParamSerializerJQL
             else {
                 $scope.current = id
             }
-        }
+        };
         $rootScope.loading = true;
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
         $http.post(url, params).then(response);
@@ -476,7 +478,7 @@ function missionController($scope, $rootScope, $route, httpPro) {
     }
 
     function drop(id) {
-        var confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
+        let confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
         if (confirm !== null && confirm === "DELETE") {
             $rootScope.loading = true;
             httpPro.postSuccessPHP("site-resources/api/drop_mission.php", {
@@ -513,21 +515,21 @@ function groupController($scope, $rootScope, $route, httpPro) {
                 pid: $scope.id
             })
             .then((data) => {
-                $scope.apps = []
+                $scope.apps = [];
                 for (let i = 0; i < data.length; i++) {
                     if ($scope.apps[data[i].section - 1]) {
-                        if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i])
-                        else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i])
+                        if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i]);
+                        else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i]);
                     } else {
-                        $scope.apps[data[i].section - 1] = {}
-                        $scope.apps[data[i].section - 1].members = []
-                        $scope.apps[data[i].section - 1].mentors = []
-                        if (data[i].pid) {} else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i])
-                        else if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i])
-                        $scope.apps[data[i].section - 1].gid = data[i].gid
-                        $scope.apps[data[i].section - 1].name = data[i].name
-                        $scope.apps[data[i].section - 1].slogan = data[i].slogan
-                        $scope.apps[data[i].section - 1].logo = data[i].logo
+                        $scope.apps[data[i].section - 1] = {};
+                        $scope.apps[data[i].section - 1].members = [];
+                        $scope.apps[data[i].section - 1].mentors = [];
+                        if (data[i].pid) {} else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i]);
+                        else if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i]);
+                        $scope.apps[data[i].section - 1].gid = data[i].gid;
+                        $scope.apps[data[i].section - 1].name = data[i].name;
+                        $scope.apps[data[i].section - 1].slogan = data[i].slogan;
+                        $scope.apps[data[i].section - 1].logo = data[i].logo;
                     }
                 }
                 $rootScope.open = true;
@@ -540,7 +542,7 @@ function groupController($scope, $rootScope, $route, httpPro) {
     }
 
     function dropM(gid, uid, r, m, g) {
-        var confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
+        let confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
         if (confirm !== null && confirm === "DELETE") {
             $rootScope.loading = true;
             httpPro.postSuccessPHP("site-resources/api/drop_group_member.php", {
@@ -570,7 +572,7 @@ function groupController($scope, $rootScope, $route, httpPro) {
     }
 
     function drop(id) {
-        var confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
+        let confirm = prompt("Please confirm your action by typing DELETE in the prompt below:", "");
         if (confirm !== null && confirm === "DELETE") {
             $rootScope.loading = true;
             httpPro.postSuccessPHP("site-resources/api/drop_group.php", {
@@ -594,11 +596,11 @@ function groupController($scope, $rootScope, $route, httpPro) {
 
     function addGroup() {
         $rootScope.loading = true;
-        const params = $httpParamSerializerJQLike({
+        const params = {
             section: $scope.apps.length + 1,
             max: 10,
             pid: $scope.id
-        });
+        };
         httpPro.postSuccessPHP("site-resources/api/create_groups.php", params)
             .then(() => {
                 $scope.apps = [];
@@ -634,26 +636,26 @@ function assignGroupController($scope, $rootScope, $route, $http, $httpParamSeri
         const response = function(res) {
             const data = res.data;
             if (data.constructor === Array) {
-                $scope.apps = []
+                $scope.apps = [];
                 for (let i = 0; i < data.length; i++) {
                     if ($scope.apps[data[i].section - 1]) {
-                        if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i])
-                        else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i])
+                        if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i]);
+                        else if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i]);
                         if (data[i].uid === parseInt($scope.id) && data[i].role === $scope.role) {
                             $scope.apps[data[i].section - 1].active = true;
                             $scope.active = data[i].section - 1;
                         }
                     } else {
-                        $scope.apps[data[i].section - 1] = {}
-                        $scope.apps[data[i].section - 1].members = []
-                        $scope.apps[data[i].section - 1].mentors = []
-                        if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i])
-                        else if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i])
-                        $scope.apps[data[i].section - 1].gid = data[i].gid
-                        $scope.apps[data[i].section - 1].name = data[i].name
-                        $scope.apps[data[i].section - 1].slogan = data[i].slogan
-                        $scope.apps[data[i].section - 1].logo = data[i].logo
-                        $scope.apps[data[i].section - 1].section = data[i].section
+                        $scope.apps[data[i].section - 1] = {};
+                        $scope.apps[data[i].section - 1].members = [];
+                        $scope.apps[data[i].section - 1].mentors = [];
+                        if (data[i].role === 'mentor') $scope.apps[data[i].section - 1].mentors.push(data[i]);
+                        else if (data[i].role === 'participant') $scope.apps[data[i].section - 1].members.push(data[i]);
+                        $scope.apps[data[i].section - 1].gid = data[i].gid;
+                        $scope.apps[data[i].section - 1].name = data[i].name;
+                        $scope.apps[data[i].section - 1].slogan = data[i].slogan;
+                        $scope.apps[data[i].section - 1].logo = data[i].logo;
+                        $scope.apps[data[i].section - 1].section = data[i].section;
                         if (data[i].uid === parseInt($scope.id) && data[i].role === $scope.role) {
                             $scope.active = data[i].section - 1;
                             $scope.apps[data[i].section - 1].active = true;
@@ -699,7 +701,6 @@ function assignGroupController($scope, $rootScope, $route, $http, $httpParamSeri
             pid: $scope.pid,
             uid: $scope.id
         });
-        console.log(params)
         const response = function(res) {
             $rootScope.loading = false;
             const data = res.data;
@@ -708,7 +709,7 @@ function assignGroupController($scope, $rootScope, $route, $http, $httpParamSeri
                 $scope.apps[section - 1].active = true;
                 $scope.apps[$scope.active].active = false;
             }
-        }
+        };
 
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
         $http.post(url, params).then(response);
@@ -724,7 +725,7 @@ function assignGroupController($scope, $rootScope, $route, $http, $httpParamSeri
     $scope.assign = assign;
 }
 
-function manageTeamController($scope, $rootScope, $route, httpPro, redirect, $timeout) {
+function manageTeamController($scope, $rootScope, httpPro, redirect, $timeout) {
     function groupInfo() {
         httpPro.getJSONArray('site-resources/api/manage_teams.php', {
                 gid: $scope.gid
@@ -769,7 +770,7 @@ function manageTeamController($scope, $rootScope, $route, httpPro, redirect, $ti
             slogan: $scope.group.slogan
         };
         httpPro.postSuccessPHP("site-resources/api/update_team.php", params)
-            .then((res) => {
+            .then(() => {
                 $rootScope.loading = false;
                 $scope.$apply();
             })
@@ -821,7 +822,7 @@ function awardTeamController($scope, $rootScope, $route, httpPro) {
             name: award.name,
             explain: award.explaination,
             uid: award.id
-        }
+        };
         console.log(award);
         httpPro.postSuccessPHP('site-resources/api/submit_award.php', params)
             .then(() => {
@@ -842,7 +843,7 @@ function awardTeamController($scope, $rootScope, $route, httpPro) {
     load();
 }
 
-function viewMissionController($scope, $rootScope, $route, $http, $httpParamSerializerJQLike) {
+function viewMissionController($scope, $rootScope, $route, $http) {
     function load() {
         const request = {
             method: "GET",
@@ -889,10 +890,10 @@ function viewMissionController($scope, $rootScope, $route, $http, $httpParamSeri
             else {
                 load();
             }
-        }
+        };
 
         $http({
-            url: 'site-resources/api/submit_mission.php',
+            url: url,
             method: "POST",
             data: formData,
             headers: {
